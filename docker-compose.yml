@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  seirx:
+    build: .
+    container_name: seirx
+    command: sh -c "jupyter notebook --ip=0.0.0.0 --no-browser --allow-root --NotebookApp.token=$NOTEBOOKTOKEN"
+    volumes:
+      - .:/seirx
+    ports:
+      - "$NOTEBOOKPORT:8888"
